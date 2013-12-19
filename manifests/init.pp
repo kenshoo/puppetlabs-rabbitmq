@@ -116,16 +116,7 @@ class rabbitmq(
   include '::rabbitmq::config'
   include '::rabbitmq::service'
   include '::rabbitmq::management'
-
-  case $::osfamily {
-    'RedHat', 'SUSE':
-      { include '::rabbitmq::repo::rhel' }
-    'Debian':
-      { include '::rabbitmq::repo::apt' }
-    default:
-      { }
-  }
-
+ 
   if $admin_enable and $service_manage {
     include '::rabbitmq::install::rabbitmqadmin'
 
