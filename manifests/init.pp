@@ -124,7 +124,6 @@ class rabbitmq(
     rabbitmq_plugin { 'rabbitmq_management':
       ensure  => present,
       require => Class['rabbitmq::install'],
-      notify  => Class['rabbitmq::service'],
       provider => 'rabbitmqplugins'
     }
 

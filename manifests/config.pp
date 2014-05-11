@@ -28,6 +28,7 @@ class rabbitmq::config {
   $config_variables           = $rabbitmq::config_variables
   $config_kernel_variables    = $rabbitmq::config_kernel_variables
   $cluster_partition_handling = $rabbitmq::cluster_partition_handling
+  $mlocation                  = $rabbitmq::mlocation
   $default_env_variables      =  {
     'RABBITMQ_NODE_PORT'        => $port,
     'RABBITMQ_NODE_IP_ADDRESS'  => $node_ip_address,
