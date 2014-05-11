@@ -51,6 +51,7 @@ class rabbitmq(
   $environment_variables      = $rabbitmq::params::environment_variables,
   $config_variables           = $rabbitmq::params::config_variables,
   $config_kernel_variables    = $rabbitmq::params::config_kernel_variables,
+  $mlocation                  = $rabbitmq::params::mlocation,
 ) inherits rabbitmq::params {
 
   validate_bool($admin_enable)

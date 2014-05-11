@@ -30,7 +30,8 @@ class rabbitmq::config {
   $cluster_partition_handling = $rabbitmq::cluster_partition_handling
   $default_env_variables      =  {
     'RABBITMQ_NODE_PORT'        => $port,
-    'RABBITMQ_NODE_IP_ADDRESS'  => $node_ip_address
+    'RABBITMQ_NODE_IP_ADDRESS'  => $node_ip_address,
+    'RABBITMQ_MNESIA_BASE'	=> $mlocation
   }
 
   # Handle env variables.
@@ -69,6 +70,13 @@ class rabbitmq::config {
     group   => '0',
     mode    => '0644',
     notify  => Class['rabbitmq::service'],
+  }
+
+  file { '/mnesia':
+    ensure  => directory,
+    owner   => 'rabbitmq',
+    group   => 'rabbitmq',
+    mode    => '0777',
   }
 
   file { 'rabbitmq-env.config':
